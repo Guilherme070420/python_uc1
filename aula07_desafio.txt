@@ -1,0 +1,116 @@
+desafio 6
+a, b, c, i: inteiro
+
+inicio
+   // Inicializa os dois primeiros termos
+   a <- 0
+   b <- 1
+
+   // Exibe os dois primeiros termos
+   escreva(a, ", ", b)
+
+   // Calcula e exibe os próximos 8 termos
+   para i de 1 ate 8 faca
+      c <- a + b
+      escreva(", ", c)
+      a <- b
+      b <- c
+   fimpara
+fim
+
+desafio 7 
+
+algoritmo "Verificar Número Primo"
+// Este programa verifica se um número fornecido pelo usuário é primo
+var
+   numero, i: inteiro
+   eh_primo: logico
+
+inicio
+   // Solicita um número ao usuário
+   escreva("Digite um número para verificar se é primo: ")
+   leia(numero)
+
+   // Considera inicialmente que o número é primo
+   eh_primo <- verdadeiro
+
+   // Verifica se o número tem divisores além de 1 e ele mesmo
+   para i de 2 ate numero - 1 faca
+      se numero % i = 0 entao
+         eh_primo <- falso
+         pare  // Sai do loop assim que encontrar um divisor
+      fimse
+   fimpara
+
+   // Exibe o resultado
+   se eh_primo e numero > 1 entao
+      escreva("O número ", numero, " é primo.")
+   senao
+      escreva("O número ", numero, " não é primo.")
+   fimse
+fim
+
+
+desafio 8 
+algoritmo "Inverter String"
+// Este programa inverte uma string fornecida pelo usuário
+var
+   texto, texto_invertido: caractere
+   i: inteiro
+
+inicio
+   // Solicita uma string ao usuário
+   escreva("Digite uma string para inverter: ")
+   leia(texto)
+
+   // Inicializa a variável para armazenar o texto invertido
+   texto_invertido <- ""
+
+   // Percorre o texto de trás para frente e monta o texto invertido
+   para i de comprimento(texto) ate 1 passo -1 faca
+      texto_invertido <- texto_invertido + texto[i]
+   fimpara
+
+   // Exibe o resultado
+   escreva("A string invertida é: ", texto_invertido)
+fim
+
+
+desafio 9 
+
+algoritmo "Média Aritmética Excluindo a Menor Nota"
+// Este programa calcula a média de 5 notas, excluindo a menor
+var
+   notas: vetor[1..5] de real
+   menor, soma, media: real
+   i: inteiro
+
+inicio
+   // Lê as 5 notas
+   para i de 1 ate 5 faca
+      escreva("Digite a nota ", i, ": ")
+      leia(notas[i])
+   fimpara
+
+   // Encontra a menor nota
+   menor <- notas[1]
+   para i de 2 ate 5 faca
+      se notas[i] < menor entao
+         menor <- notas[i]
+      fimse
+   fimpara
+
+   // Calcula a soma das notas excluindo a menor
+   soma <- 0
+   para i de 1 ate 5 faca
+      se notas[i] <> menor entao
+         soma <- soma + notas[i]
+      fimse
+   fimpara
+
+   // Calcula a média
+   media <- soma / 4
+
+   // Exibe o resultado
+   escreva("A média aritmética, excluindo a menor nota, é: ", media:4:2)
+fim
